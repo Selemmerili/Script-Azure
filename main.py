@@ -19,8 +19,8 @@ logging.basicConfig(
 def listb(args, containerclient):
     """
     Cette fonction nous retourne une liste de tout les éléments
-    de notre stockage blob.
-    Commande :py main.py list
+    de notre stockage blob.\n
+    Commande : py main.py list
     """
     blob_list=containerclient.list_blobs()
     for blob in blob_list:
@@ -30,8 +30,8 @@ def listb(args, containerclient):
 def upload(cible, blobclient):
     """
     Cette fonction nous permet d'uploader un fichier de notre pc 
-    vers notre stockage blob.
-    Commande :py main.py upload "route vers votre fichier"
+    vers notre stockage blob.\n
+    Commande : py main.py upload "route vers votre fichier"
     """
     with open(cible, "rb") as f:
         blobclient.upload_blob(f)
@@ -40,8 +40,8 @@ def upload(cible, blobclient):
 def download(filename, dl_folder, blobclient):
     """
     Cette fonction nous permet de telecharger un fichier de 
-    notre stockage blob vers notre dossier locale.
-    Commande :py main.py download "nom du blob à telecharger"
+    notre stockage blob vers notre dossier locale.\n
+    Commande : py main.py download "nom du blob à telecharger"
     """
     with open(os.path.join(dl_folder,filename), "wb") as my_blob:
         blob_data=blobclient.download_blob()
